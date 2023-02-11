@@ -6,6 +6,9 @@ default: &default
 
 development:
   <<: *default
+  database: <%= ENV.fetch("RORBLOG_DEV_DATABASE_NAME") %>
+  username: <%= ENV.fetch("RORBLOG_DEV_DATABASE_USER") %>
+  password: <%= ENV.fetch("RORBLOG_DEV_DATABASE_PASS") %>
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
