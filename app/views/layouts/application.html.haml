@@ -8,7 +8,10 @@
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_importmap_tags
   %body
-    %h1 
-      %a{ :href => "/"}
-        Citoyen en transition avec Ruby On Rails
-    = yield
+    %nav
+      =link_to 'Citoyen en transition avec Ruby On Rails', root_path, class: 'navbar-brand'
+
+    %div.container
+      -flash.each do |key, value|
+        %div.alert.alert-(class=key)=value
+      = yield
