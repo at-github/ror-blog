@@ -10,6 +10,15 @@
   %body
     %nav
       =link_to 'Citoyen en transition avec Ruby On Rails', root_path, class: 'navbar-brand'
+      -if current_user
+        %li
+          =current_user.email
+          =link_to 'Déconnexion', sign_out_path, method: :delete
+      -else
+        %li
+          =link_to 'Connexion', sign_in_path
+        %li
+          =link_to 'Inscription', new_user_path
 
     %div.container
       -flash.each do |key, value|

@@ -1,0 +1,19 @@
+%h2 Inscription
+
+=form_for @user do |form|
+  - @user.errors.full_messages_for(:body).each do |message|
+    %div= message
+
+  %div.form-line
+    =form.label :email
+    =form.email_field :email
+
+  %div.form-line
+    =form.label :'Mot de passe'
+    =form.password_field :password
+
+  %div.form-line
+    =form.label :'Confirmez le mot de passe'
+    =form.password_field :password_confirmation
+
+  =form.submit 'Inscription'

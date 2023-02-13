@@ -1,0 +1,19 @@
+%h2 Connexion
+
+=form_for @user_session do |form|
+  - @user_session.errors.full_messages_for(:body).each do |message|
+    %div= message
+
+  %div.form-line
+    =form.label :email
+    =form.email_field :email
+
+  %div.form-line
+    =form.label :'Mot de passe'
+    =form.password_field :password
+
+  %div.form-line
+    =form.label :'Gardez-moi connecté'
+    =form.check_box :remember_me
+
+  =form.submit 'Connexion'
