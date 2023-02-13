@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+  before_action :require_user, except: %I[index show]
+
   def index
     @articles = Article.all
   end

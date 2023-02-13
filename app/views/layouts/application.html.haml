@@ -13,7 +13,7 @@
       -if current_user
         %li
           =current_user.email
-          =link_to 'Déconnexion', sign_out_path, method: :delete
+          =link_to 'Déconnexion', sign_out_path, data: {turbo_method: :delete}
       -else
         %li
           =link_to 'Connexion', sign_in_path
