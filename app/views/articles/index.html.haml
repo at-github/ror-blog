@@ -3,8 +3,7 @@
 -if current_user
   =link_to "Nouvel article", new_article_path
 
-%ul
-  - @articles.each do |article|
-    %li
-      %h2
-        = link_to article.title, article
+- @articles.each do |article|
+  %div.row
+    %h2
+      = link_to article.title, article
