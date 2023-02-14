@@ -6,19 +6,26 @@
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
+    = javascript_include_tag "application"
     = javascript_importmap_tags
   %body
-    %nav
+    %nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
       =link_to 'Citoyen en transition avec Ruby On Rails', root_path, class: 'navbar-brand'
-      -if current_user
-        %li
-          =current_user.email
-          =link_to 'Déconnexion', sign_out_path, data: {turbo_method: :delete}
-      -else
-        %li
-          =link_to 'Connexion', sign_in_path
-        %li
-          =link_to 'Inscription', new_user_path
+      %button.navbar-toggler
+        %span.navbar-toggler-icon
+      %div.collapse.navbar-collapse
+        %ul.navbar-nav.mr-auto
+          -if current_user
+            %li.nav-item
+              =link_to 'Déconnexion', sign_out_path, data: {turbo_method: :delete}, class: 'nav-link active'
+          -else
+            %li.nav-item
+              =link_to 'Connexion', sign_in_path, class: 'nav-link active'
+            %li.nav-item
+              =link_to 'Inscription', new_user_path, class: 'nav-link active'
+        -if current_user
+          %span.navbar-text
+            =current_user.email
 
     %div.container
       -flash.each do |key, value|

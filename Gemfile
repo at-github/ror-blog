@@ -53,6 +53,8 @@ gem "bootsnap", require: false
 gem "haml"
 gem "haml-rails"
 gem 'authlogic'
+gem 'bootstrap', '~> 4.4.1'
+gem 'jquery-rails'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
