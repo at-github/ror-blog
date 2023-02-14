@@ -1,16 +1,18 @@
 = form_with model: article do |form|
-  %div
+  %div.form-group
     =form.label :article_type, :Type
-    =form.select :article_type, Article.article_types.map
-  %div
+    =form.select :article_type, Article.article_types.map, class: 'form-control'
+  %div.form-group
     =form.label :title, :Titre
-    =form.text_field :title
+    =form.text_field :title, { |
+      :class => "form-control #{article.errors.full_messages_for(:title).empty? ? '' : 'is-invalid'}" |
+    } |
     - article.errors.full_messages_for(:title).each do |message|
-      %div= message
-  %div
-    =form.label :body, :Contenu
-    =form.text_area :body
+      %div.error-message= message
+  %div.form-group
+    =form.text_area :body, class: 'tinymce hide'
+    =tinymce
     - article.errors.full_messages_for(:body).each do |message|
-      %div= message
-  %div
-    =form.submit
+      %div.error-message= message
+  %div.form-group
+    =form.submit class: 'btn btn-primary mt-2'
