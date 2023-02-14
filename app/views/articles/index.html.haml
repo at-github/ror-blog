@@ -1,9 +1,7 @@
-%h1 Articles
-
--if current_user
-  =link_to "Nouvel article", new_article_path
-
+%h3 Articles
+%hr
 - @articles.each do |article|
   %div.row
-    %h2
-      = link_to article.title, article
+    %div.blog-post
+      %h2
+        = link_to article.title, article
