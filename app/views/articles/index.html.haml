@@ -18,3 +18,5 @@
     %hr
     - @links.each do |link|
       = link_to link.text, link.link
+      -if current_user
+        = link_to '✏', edit_link_path(link), class: 'text-decoration-none'

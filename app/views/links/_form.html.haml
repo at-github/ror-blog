@@ -1,0 +1,17 @@
+= form_with model: link do |form|
+  %div.form-group
+    =form.label :text, :Texte
+    =form.text_field :text, { |
+      :class => "form-control #{link.errors.full_messages_for(:text).empty? ? '' : 'is-invalid'}" |
+    } |
+    - link.errors.full_messages_for(:text).each do |message|
+      %div.error-message= message
+  %div.form-group
+    =form.label :link, :Lien
+    =form.text_field :link, { |
+      :class => "form-control #{link.errors.full_messages_for(:link).empty? ? '' : 'is-invalid'}" |
+    } |
+    - link.errors.full_messages_for(:link).each do |message|
+      %div.error-message= message
+  %div
+    =form.submit 'Modifier', class: 'btn btn-primary'

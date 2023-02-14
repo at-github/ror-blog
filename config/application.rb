@@ -19,7 +19,7 @@ module RorCitoyenentransitionFr
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
     config.generators do |g|
-      g.template_engine :Haml
+      g.template_engine :haml
     end
   end
 end
