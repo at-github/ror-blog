@@ -9,6 +9,7 @@ class LinksController < ApplicationController
     @link = Link.find(params[:id])
 
     if @link.update(link_params)
+      flash[:success] = 'Lien mis à jour'
       redirect_to root_path
     else
       render :edit, status: :unprocessable_entity
