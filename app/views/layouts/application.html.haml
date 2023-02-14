@@ -8,7 +8,7 @@
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_include_tag "application"
     = tinymce_assets
-    = javascript_include_tag "/assets/tinymce.js"
+    %script "/assets/tinymce.js"
     = javascript_importmap_tags
   %body
     %nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
@@ -19,7 +19,7 @@
         %ul.navbar-nav.mr-auto
           -if current_user
             %form.form-inline
-              =link_to "Nouvel article", new_article_path, class: 'btn btn-success'
+              =link_to "Nouvel article", new_article_path, class: 'btn btn-success', data: {turbo: false}
               %span.bi-search
         %form.form-inline
           -if current_user
