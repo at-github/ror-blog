@@ -4,6 +4,7 @@ class ArticlesController < ApplicationController
   def index
     @articles = Article.where(article_type: 0)
     @suggestions = Article.where(article_type: 1)
+    @links = Link.all
   end
 
   def show

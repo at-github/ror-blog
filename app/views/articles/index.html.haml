@@ -13,3 +13,8 @@
       %div.blog-post
         %h2
           = link_to article.title, article
+  %div.col
+    %h3 Liens
+    %hr
+    - @links.each do |link|
+      = link_to link.text, link.link
