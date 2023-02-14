@@ -23,4 +23,9 @@
         %li.list-group-item
           = link_to link.text, link.link
           -if current_user
-            = link_to '✏', edit_link_path(link), class: 'text-decoration-none small'
+            = link_to '✐', edit_link_path(link), class: 'text-decoration-none small badge badge-primary', title: 'Éditer'
+            = link_to '⤫', link_path(link), class: 'text-decoration-none small badge badge-danger', title: 'Supprimer', |
+            data: { |
+              turbo_method: :delete, |
+              turbo_confirm: "Vous êtes sur ?" |
+            } |
