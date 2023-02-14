@@ -16,7 +16,11 @@
   %div.col
     %h3 Liens
     %hr
-    - @links.each do |link|
-      = link_to link.text, link.link
-      -if current_user
-        = link_to '✏', edit_link_path(link), class: 'text-decoration-none'
+    -if current_user
+      = link_to 'Nouveau lien', new_link_path, class: 'btn btn-success mb-4'
+    %ul.list-group
+      - @links.each do |link|
+        %li.list-group-item
+          = link_to link.text, link.link
+          -if current_user
+            = link_to '✏', edit_link_path(link), class: 'text-decoration-none small'

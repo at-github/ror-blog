@@ -1,6 +1,21 @@
 class LinksController < ApplicationController
   before_action :require_user, except: %I[index show]
 
+  def new
+    @link = Link.new
+  end
+
+  def create
+    @link = Link.new(link_params)
+
+    if @link.save
+      flash[:success] = 'Lien crée'
+      redirect_to root_path
+    else
+      render :new
+    end
+  end
+
   def edit
     @link = Link.find(params[:id])
   end
