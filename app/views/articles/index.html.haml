@@ -1,7 +1,15 @@
-%h3 Articles
-%hr
-- @articles.each do |article|
-  %div.row
-    %div.blog-post
-      %h2
-        = link_to article.title, article
+%div.row
+  %div.col
+    %h3 Articles
+    %hr
+    - @articles.each do |article|
+      %div.blog-post
+        %h2
+          = link_to article.title, article
+  %div.col
+    %h3 Suggestions
+    %hr
+    - @suggestions.each do |article|
+      %div.blog-post
+        %h2
+          = link_to article.title, article

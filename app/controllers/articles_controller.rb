@@ -2,7 +2,8 @@ class ArticlesController < ApplicationController
   before_action :require_user, except: %I[index show]
 
   def index
-    @articles = Article.all
+    @articles = Article.where(article_type: 0)
+    @suggestions = Article.where(article_type: 1)
   end
 
   def show
