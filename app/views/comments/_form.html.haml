@@ -1,0 +1,11 @@
+=form_with model: [ @article, @article.comments.build ] do |form|
+  %div.form-group
+    =form.label :commenter
+    =form.text_field :commenter
+
+  %div.form-group
+    =form.label :body
+    =form.text_area :body
+
+  %div.form-group
+    =form.submit 'Sauvegarder', class: 'btn btn-success'

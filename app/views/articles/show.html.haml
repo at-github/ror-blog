@@ -14,17 +14,12 @@
 
 %h2 Laisser un commentaire
 
-=form_with model: [ @article, @article.comments.build ] do |form|
-  %div.form-group
-    =form.label :commenter
-    =form.text_field :commenter
+-if current_user
+  =render 'comments/form'
+-else
+  Connecté vous pour laisser un commentaire
 
-  %div.form-group
-    =form.label :body
-    =form.text_area :body
-
-  %div.form-group
-    =form.submit 'Sauvegarder', class: 'btn btn-success'
+%hr
 
 %h2 Commentaires
 
