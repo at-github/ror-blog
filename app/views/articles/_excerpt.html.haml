@@ -1,5 +1,11 @@
 %div.blog-post
   %h2
     = link_to article.title, article
+
+  - if article.body.length > 100
+    != article.body[0..100]...
+  -else
+    != article.body
+
   - if article.comments.count > 0
     %p.small.o-5 💬 #{article.comments.count}
