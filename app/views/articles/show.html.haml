@@ -9,3 +9,28 @@
     turbo_method: :delete, |
     turbo_confirm: "Vous êtes sur ?" |
   } |
+
+%hr
+
+%h2 Laisser un commentaire
+
+=form_with model: [ @article, @article.comments.build ] do |form|
+  %div.form-group
+    =form.label :commenter
+    =form.text_field :commenter
+
+  %div.form-group
+    =form.label :body
+    =form.text_area :body
+
+  %div.form-group
+    =form.submit 'Sauvegarder', class: 'btn btn-success'
+
+%h2 Commentaires
+
+-if @article.comments.count == 0
+  C'est calme ici pour l'instant
+
+-@article.comments.each do |comment|
+  %strong=comment.commenter
+  %p=comment.body
