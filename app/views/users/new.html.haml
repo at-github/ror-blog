@@ -1,19 +1,29 @@
 %h2 Inscription
 
-=form_for @user do |form|
-  - @user.errors.full_messages_for(:body).each do |message|
-    %div= message
-
-  %div.form-line
+=form_with model: @user, data: {turbo: false} do |form|
+  %div.form-group
     =form.label :email
-    =form.email_field :email
+    =form.email_field :email, { |
+      :class => "form-control #{@user.errors.full_messages_for(:email).empty? ? '' : 'is-invalid'}" |
+    } |
+    - @user.errors.full_messages_for(:email).each do |message|
+      %div.error-message= message
 
-  %div.form-line
+  %div.form-group
     =form.label :'Mot de passe'
-    =form.password_field :password
+    =form.password_field :password, { |
+      :class => "form-control #{@user.errors.full_messages_for(:password).empty? ? '' : 'is-invalid'}" |
+    } |
+    - @user.errors.full_messages_for(:password).each do |message|
+      %div.error-message= message
 
-  %div.form-line
+  %div.form-group
     =form.label :'Confirmez le mot de passe'
-    =form.password_field :password_confirmation
+    =form.password_field :password_confirmation, { |
+      :class => "form-control #{@user.errors.full_messages_for(:password_confirmation).empty? ? '' : 'is-invalid'}" |
+    } |
 
-  =form.submit 'Inscription'
+    - @user.errors.full_messages_for(:password_confirmation).each do |message|
+      %div.error-message= message
+
+  =form.submit 'Inscription', class: 'btn btn-success'
