@@ -1,8 +1,11 @@
 %h1= @article.title 
+
 !=@article.body
-%hr
-=link_to "Éditer",    edit_article_path(@article), class: 'mr-2', data: {turbo: false}
-=link_to "Supprimer", article_path(@article), data: { |
-  turbo_method: :delete, |
-  turbo_confirm: "Vous êtes sur ?" |
-} |
+
+-if current_admin
+  %hr
+  =link_to "Éditer",    edit_article_path(@article), class: 'mr-2', data: {turbo: false}
+  =link_to "Supprimer", article_path(@article), data: { |
+    turbo_method: :delete, |
+    turbo_confirm: "Vous êtes sur ?" |
+  } |

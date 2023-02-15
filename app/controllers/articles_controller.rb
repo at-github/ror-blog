@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :require_user, except: %I[index show]
+  before_action :require_admin, except: %I[index show]
 
   def index
     @articles = Article.where(article_type: 0)
