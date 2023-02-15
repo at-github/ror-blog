@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
-  root "articles#index"
+  root 'articles#index'
 
   resources :articles
 
-  resources :users, only: [:new, :create]
-  resources :user_sessions, only: [:create, :destroy]
+  resources :users, only: %I[new create index]
+  resources :user_sessions, only: %I[create destroy]
 
-  delete '/sign_out', to: 'user_sessions#destroy', as: :sign_out
-  get '/sign_in', to: 'user_sessions#new', as: :sign_in
+  delete '/logout', to: 'user_sessions#destroy', as: :sign_out
+  get '/login', to: 'user_sessions#new', as: :sign_in
 
   resources :links
 end
