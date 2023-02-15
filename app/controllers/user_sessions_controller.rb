@@ -1,4 +1,8 @@
 class UserSessionsController < ApplicationController
+  def index
+    redirect_to sign_in_path
+  end
+
   def new
     @user_session = UserSession.new
   end
@@ -10,7 +14,7 @@ class UserSessionsController < ApplicationController
       flash[:success] = 'Bienvenue'
       redirect_to root_path
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 

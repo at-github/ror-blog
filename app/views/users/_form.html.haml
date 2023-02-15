@@ -1,0 +1,15 @@
+%div.form-group
+  =form.label 'Email'
+  =form.email_field :email, { |
+    :class => "form-control #{user.errors.full_messages_for(:email).empty? ? '' : 'is-invalid'}" |
+  } |
+  - user.errors.full_messages_for(:email).each do |message|
+    %div.error-message= message
+
+%div.form-group
+  =form.label :'Mot de passe'
+  =form.password_field :password, { |
+    :class => "form-control #{user.errors.full_messages_for(:password).empty? ? '' : 'is-invalid'}" |
+  } |
+  - user.errors.full_messages_for(:password).each do |message|
+    %div.error-message= message
