@@ -1,7 +1,7 @@
 = form_with model: article, data: {turbo: false} do |form|
   %div.form-group
     =form.label :article_type, :Type
-    =form.select :article_type, Article.article_types.map, class: 'form-control'
+    =form.select :article_type, Article.article_types.map, {}, class: 'form-control'
 
   %div.form-group
     =form.label :title, :Titre

@@ -1,0 +1,14 @@
+=form_with model: @user, data: {turbo: false} do |form|
+  %div.form-group
+    =form.label 'Email'
+    =form.email_field :email, { |
+      :class => "form-control #{@user.errors.full_messages_for(:email).empty? ? '' : 'is-invalid'}" |
+    } |
+    - @user.errors.full_messages_for(:email).each do |message|
+      %div.error-message= message
+
+  %div.form-group
+    =form.label :role, :Role
+    =form.select :role, User.roles.map, {}, class: 'form-control form-select-lg'
+
+  =form.submit 'Modifier', class: 'btn btn-success'

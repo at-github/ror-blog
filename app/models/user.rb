@@ -21,4 +21,6 @@ class User < ApplicationRecord
 
   validates :password, length: { minimum: 6, message: 'Trop court' }, confirmation: true
   validates :password_confirmation, presence: true
+
+  enum :roles, { ADMIN: 'ADMIN', USER: 'USER' }
 end

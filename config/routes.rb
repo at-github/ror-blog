@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  resources :users, only: %I[new create index]
+  resources :users
   resources :user_sessions, only: %I[create destroy index]
 
   delete '/logout', to: 'user_sessions#destroy', as: :sign_out

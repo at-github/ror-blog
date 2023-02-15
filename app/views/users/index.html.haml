@@ -11,6 +11,8 @@
         Created at
       %th{ scope: 'col'}
         Updated at
+      %th{ scope: 'col'}
+        Action
   %tbody
     -@users.each do |user|
       %tr
@@ -24,3 +26,5 @@
           =user.created_at
         %td
           =user.updated_at
+        %td
+          =link_to 'Edit', edit_user_path(user.id)

@@ -5,6 +5,10 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def show
+    redirect_to :users
+  end
+
   def new
     @user = User.new
   end
@@ -18,6 +22,17 @@ class UsersController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    @user.update_column(:role, params[:user][:role])
+    flash[:success] = 'Utilisateur modifié'
+    redirect_to :users
   end
 
   private
