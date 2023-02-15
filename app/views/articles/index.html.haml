@@ -16,13 +16,13 @@
   %div.col-lg-3
     %h3 Liens
     %hr
-    -if current_user
+    -if current_admin
       = link_to 'Nouveau lien', new_link_path, class: 'btn btn-success mb-4'
     %ul.list-group
       - @links.each do |link|
         %li.list-group-item
           = link_to link.text, link.link
-          -if current_user
+          -if current_admin
             %div.link-actions
               = link_to '✐', edit_link_path(link), class: 'text-decoration-none small badge badge-primary', title: 'Éditer'
               = link_to '⤫', link_path(link), class: 'text-decoration-none small badge badge-danger', title: 'Supprimer', |
