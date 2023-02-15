@@ -2,6 +2,7 @@
   %div.form-group
     =form.label :article_type, :Type
     =form.select :article_type, Article.article_types.map, class: 'form-control'
+
   %div.form-group
     =form.label :title, :Titre
     =form.text_field :title, { |
@@ -9,10 +10,12 @@
     } |
     - article.errors.full_messages_for(:title).each do |message|
       %div.error-message= message
+
   %div.form-group
     =form.text_area :body, class: 'tinymce hide'
     =tinymce
     - article.errors.full_messages_for(:body).each do |message|
       %div.error-message= message
+
   %div.form-group
-    =form.submit class: 'btn btn-primary mt-2'
+    =form.submit 'Sauvegarder', class: 'btn btn-primary mt-2'
