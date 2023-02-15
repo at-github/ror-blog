@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    redirect_to new_user_path
+    @users = User.all
   end
 
   def new
