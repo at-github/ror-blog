@@ -17,10 +17,10 @@
         %span.navbar-toggler-icon
       %div.collapse.navbar-collapse
         %ul.navbar-nav.mr-auto
-          -if current_user
+          -if current_admin
             %form.form-inline
-              =link_to "Nouvel article", new_article_path, class: 'btn btn-success', data: {turbo: false}
-              %span.bi-search
+              =link_to 'Nouvel article', new_article_path, class: 'btn btn-success mr-2', data: {turbo: false}
+              =link_to 'Utilisateurs', users_path, class: 'btn btn-primary', data: {turbo: false}
         %form.form-inline
           -if current_user
             =link_to current_user.email, current_user.email, class: 'nav-link disabled'
