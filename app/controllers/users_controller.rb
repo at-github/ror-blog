@@ -35,6 +35,13 @@ class UsersController < ApplicationController
     redirect_to :users
   end
 
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+
+    redirect_to :users, status: :see_other
+  end
+
   private
 
   def users_params

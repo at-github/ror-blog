@@ -27,4 +27,8 @@
         %td
           =user.updated_at
         %td
-          =link_to 'Edit', edit_user_path(user.id)
+          =link_to 'Edit', edit_user_path(user.id), class: 'mr-1'
+          =link_to 'Sup', user_path(user.id), data: { |
+            turbo_method: :delete, |
+            turbo_confirm: "Vous êtes sur ?" |
+          } |
