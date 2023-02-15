@@ -19,12 +19,6 @@ class User < ApplicationRecord
             length: { maximum: 100 },
             uniqueness: { case_sensitive: false }
 
-  validates :password,
-            confirmation: { if: :require_password? },
-            length: { minimum: 6, message: 'Minimum 6 caractères' },
-            if: :require_password?
-
-  validates :password_confirmation,
-            length: { minimum: 6, message: 'Minimum 6 caractères' },
-            if: :require_password?
+  validates :password, length: { minimum: 6, message: 'Trop court' }, confirmation: true
+  validates :password_confirmation, presence: true
 end
