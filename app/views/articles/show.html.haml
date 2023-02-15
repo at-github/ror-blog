@@ -26,4 +26,5 @@
 -if @article.comments.count == 0
   C'est calme ici pour l'instant
 
-=render @article.comments
+%ul.list-group
+  =render @article.comments

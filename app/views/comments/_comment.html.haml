@@ -1,8 +1,9 @@
 - if comment.commenter && comment.body
-  %strong=comment.commenter
-  %p=comment.body
-  -if current_admin
-    =link_to "Supprimer", [comment.article, comment], data: { |
-      turbo_method: :delete, |
-      turbo_confirm: "Vous êtes sur ?" |
-    } |
+  %li.list-group-item
+    %span.badge.badge-info.mb-1=comment.commenter
+    %p=comment.body
+    -if current_admin
+      =link_to "Supprimer", [comment.article, comment], data: { |
+        turbo_method: :delete, |
+        turbo_confirm: "Vous êtes sur ?" |
+      } |
