@@ -2,9 +2,9 @@ class ArticlesController < ApplicationController
   before_action :require_admin, except: %I[index show]
 
   def index
-    @articles = Article.where(article_type: 0)
-    @suggestions = Article.where(article_type: 1)
-    @links = Link.all
+    @articles = Article.where(article_type: 0).order(created_at: :desc)
+    @suggestions = Article.where(article_type: 1).order(created_at: :desc)
+    @links = Link.all.order(:text)
   end
 
   def show
