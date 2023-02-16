@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   get '/login', to: 'user_sessions#new', as: :sign_in
 
   resources :links
+
+  match '/404', to: 'errors#not_found', via: :all
 end
