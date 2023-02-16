@@ -17,7 +17,7 @@
     %ul.list-group
       - @links.each do |link|
         %li.list-group-item
-          = link_to link.text, link.link
+          = link_to link.text, link.link, target: '_blank'
           -if current_admin
             %div.link-actions
               = link_to '✐', edit_link_path(link), class: 'text-decoration-none small badge badge-primary', title: 'Éditer'
