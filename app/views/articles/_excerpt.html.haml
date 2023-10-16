@@ -3,7 +3,7 @@
     = link_to article.title, article
 
   - if article.body.length > 100
-    != article.body[0..100]...
+    != Nokogiri::HTML.parse(article.body).text[0..100]...
   -else
     != article.body
 
